@@ -22,7 +22,7 @@ let products: Product[] = [
 ]
 
 // @desc Get all products
-//@route GET /api/v1/products
+//@route GET /products
 const getProducts = ({response}: {response: any}) => {
   response.body = {
     success: true,
@@ -31,7 +31,7 @@ const getProducts = ({response}: {response: any}) => {
 }
 
 // @desc Get a single product
-//@route GET /api/v1/products/:id
+//@route GET /products/:id
 const getProduct = ({params, response}: { params: { id: string}, response: any}) => {
   const product: Product | undefined = products.find(p => p.id === params.id)
 
@@ -52,7 +52,7 @@ const getProduct = ({params, response}: { params: { id: string}, response: any})
 }
 
 // @desc add product
-//@route Post /api/v1/products
+//@route Post /products
 const addProduct = async ({request, response}: {request: any, response: any}) => {
   const body = await request.body()
 
@@ -76,7 +76,7 @@ const addProduct = async ({request, response}: {request: any, response: any}) =>
 }
 
 // @desc update product
-//@route PUT /api/v1/products/:id
+//@route PUT /products/:id
 const updateProduct = async ({params, request, response}: {params: {id: string}, request: any, response: any}) => {
 
   const product: Product | undefined = products.find(p => p.id === params.id)
@@ -104,7 +104,7 @@ const updateProduct = async ({params, request, response}: {params: {id: string},
 }
 
 // @desc delete a product
-//@route DELETE /api/v1/products/:id
+//@route DELETE /products/:id
 const deleteProduct = ({params, response}: {params: {id: string}, response: any}) => {
   products = products.filter(p => p.id !== params.id)
   response.body = {

@@ -1,0 +1,7 @@
+{
+  "allow": ["net", "write", "read"],
+  "$schema": "https://deno.land/x/denon/schema.json",
+  "scripts": {
+    "start": "./server/index.ts"
+  }
+}
